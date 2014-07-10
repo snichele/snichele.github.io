@@ -22,26 +22,15 @@ html(lang='en', ng-app='app')
     script(src='/js/partials.js')
     script(src='/js/app.js')
   body(ng-controller='AppCtrl')
-    .wrapper
-      .navbar.navbar-static-top
-        .navbar-inner
-          .container
-            button.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a(href='/').brand Angular Brunch Seed
-            .nav-collapse
-              div(ng-include="'/partials/nav.html'")
-      .container.main-content
-        div(ng-view)
-        div Angular Brunch seed app: v<span app-version></span>
-        div
-          p plop plip plup koi
-      .push
-
-    footer.footer
-      .container
-        p
-          small
-            a(href='https://github.com/scotch/angular-brunch-seed') angular-brunch-seed | source
+    .container
+      #banner.page-header
+        .row
+          .col-lg-8.col-md-7.col-sm-6
+            h1 Cerulean
+            p.lead A calm blue sky
+          .col-lg-4.col-md-5.col-sm-6
+            div(ng-view)
+      div Angular Brunch seed app: v<span app-version></span>
+      div
+        p plop plip plup koi
+    .push

@@ -1,1 +1,64 @@
-"Hello world" 
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <style type="text/css" media="screen">
+      body {
+        overflow: hidden;
+      }
+
+      #editor { 
+        margin: 0;
+        width : 50%;
+        height : 250px;
+      }
+    </style>
+  </head>
+
+
+  <body>
+    <h1>Toto</h1>
+    <div class="codeblock" id="editor"><pre>
+    var _define = function(module, deps, payload) {
+    if (typeof module !== 'string') {
+        if (_define.original)
+            _define.original.apply(window, arguments);
+        else {
+            console.error('dropping module because define wasn\'t a string.');
+            console.trace();
+        }
+        return;
+    }
+
+    if (arguments.length == 2)
+        payload = deps;
+
+    if (!_define.modules) {
+        _define.modules = {};
+        _define.payloads = {};
+    }
+    
+    _define.payloads[module] = payload;
+    _define.modules[module] = null;
+};
+    </pre>
+    </div>
+    <form><button onclick="runCode();return false;">Run</button></form>
+
+    <script src="./bower_components/ace-builds/src-min-noconflict/ace.js"></script>
+    <script>
+
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/twilight");
+      editor.getSession().setMode("ace/mode/javascript");
+
+      function runCode() {
+        eval(editor.getValue());
+      }
+    </script>
+  </body>
+
+</html>

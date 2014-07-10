@@ -1,0 +1,8 @@
+{
+  "name": "blog",
+  "version": "0.0.1",
+  "main": "index.html",
+  "dependencies": {
+    "ace-builds": "1.1.4"
+  }
+}
